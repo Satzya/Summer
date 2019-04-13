@@ -21,3 +21,7 @@ alert('Radio done');
     }
 }());
 
+console.log('HAHA');
+var e;
+var gh;
+var cd;
