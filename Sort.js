@@ -1,3 +1,4 @@
-console.log('HAHA');
-var e;
-var gh;
+// console.log('HAHA');
+let rfd = require('./export');
+console.log(`${rfd.pp}`);
+rfd.pdm();
