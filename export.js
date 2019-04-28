@@ -4,6 +4,7 @@ module.exports.pdm = () => {
 
 module.exports.pp = 'abc';
 
+console.log('Lotus');
 
 (function jj() {
     console.log('Teddy');

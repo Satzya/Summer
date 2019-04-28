@@ -1,0 +1,8 @@
+<h2>
+    HOME is where it is {{contact}}</h2>
+
+{{#if boolBhai}} {{!-- checks for true --}}
+<h2>boolBhai is true</h2>
+{{/if}} {{#unless boolBhai}} {{!-- checks for false --}}
+<h2>boolBhai is true</h2>
+{{/unless}} {{#each lists}} {{.}} {{/each}}
