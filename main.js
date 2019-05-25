@@ -2,7 +2,11 @@ var express = require('express');
 var app = express();
 var exhbs = require('express-handlebars');
 
-app.engine('handlebars', exhbs({ defaultLayout: 'main' }));
+
+app.engine('handlebars', exhbs({
+    defaultLayout: 'main',
+    partialsDir: __dirname + '/views/partials'
+}));
 app.set('view engine', 'handlebars');
 app.use('/public', express.static(__dirname + '/public'));
 app.get('/', (req, res) => {
@@ -23,6 +27,10 @@ app.get('/ajaxOperations', (req, res) => {
     res.render('ajaxCalls/ajaxOne');
 });
 
+
+app.get('/studentDashboard', (req, res) => {
+    res.render('student/studentDashboard');
+});
 
 app.listen(9999, () => {
     console.log('Started');
