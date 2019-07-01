@@ -1,7 +1,13 @@
 var express = require('express');
 var app = express();
 var exhbs = require('express-handlebars');
+/* var rou = express.Router();
 
+rou.get('/happa', (req, res) => {
+    res.render('student/studentDashboard');
+})
+
+app.use('/', rou); /* For Router */ /*  */
 
 app.engine('handlebars', exhbs({
     defaultLayout: 'main',
@@ -27,6 +33,19 @@ app.get('/ajaxOperations', (req, res) => {
     res.render('ajaxCalls/ajaxOne');
 });
 
+app.get('/jsonRes', (req, res) => {
+    res.send('<h1>HERE</h1>');
+})
+
+let jj = (b) => new Promise(function (resolve, reject) {
+    resolve('app');
+})
+
+abc = jj(1).then(() => {
+    console.log('Happ')
+}).catch(() => {
+    console.log('Sad')
+})
 
 app.get('/studentDashboard', (req, res) => {
     res.render('student/studentDashboard');

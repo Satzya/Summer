@@ -6,6 +6,7 @@ $(document).ready(() => {
     // $('#subjectDetails').hidden = false;
 });
 
+
 $('#toggle').click(() => {
     // $('#here').hide();
     $('#here').addClass('added');

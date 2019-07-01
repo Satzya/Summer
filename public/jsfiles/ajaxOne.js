@@ -17,3 +17,36 @@ $('#clickOne').click(() => {
     }
     xhr.send();
 });
+
+
+$('#clickTwo').click(() => {
+    $.ajax('https://api.github.com/users', {
+        type: 'GET',
+        dataType: 'json',
+        timeOut: 1,
+        success: (data => console.log(data))
+    })
+})
+
+$('#clickThree').click(() => {
+    $.ajax('http://localhost:9999/jsonRes', {
+        type: 'GET',
+        dataType: 'html',
+        timeOut: 1,
+        success: (data => $('#localApi').html(data))
+    })
+})
+
+
+$('#clickTwo').hover((e) => {
+    console.log(e.target.id);
+})
+
+$(document).ready(() => {
+    let i = 1;
+    for (; i < 6;) {
+        // $('div').append('<h1>PP</h1>');
+        i += 1;
+        // console.log(i);
+    }
+})
