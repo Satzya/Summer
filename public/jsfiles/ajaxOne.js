@@ -6,7 +6,7 @@ $('#clickOne').click(() => {
         if (xhr.status == 200) {
             console.log(JSON.parse(xhr.responseText));
             var hh = JSON.parse(xhr.responseText);
-            for (p of hh) {
+            for (let p of hh) {
                 console.log(p);
                 let output = '<div>' + JSON.stringify(p.login) + '';
                 output += '<img src = "' + p.avatar_url + '" width = "77" height = "77">';
@@ -24,7 +24,7 @@ $('#clickTwo').click(() => {
         type: 'GET',
         dataType: 'json',
         timeOut: 1,
-        success: (data => console.log(data))
+        success: data => console.log(data)
     })
 })
 
@@ -33,12 +33,24 @@ $('#clickThree').click(() => {
         type: 'GET',
         dataType: 'html',
         timeOut: 1,
-        success: (data => $('#localApi').html(data))
+        success: data => $('#localApi').html(data)
+    })
+})
+
+$('#nameClick').click(() => {
+    let value = {
+        'name': $('#name').val()
+    }
+    $.ajax('http://localhost:9999/name', {
+        type: 'POST',
+        dataType: 'text',
+        data: value,
+        success: data => $('#pasteInDiv').html(data)
     })
 })
 
 
-$('#clickTwo').hover((e) => {
+$('#clickTwo').hover(e => {
     console.log(e.target.id);
 })
 
