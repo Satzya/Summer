@@ -66,6 +66,10 @@ app.post('/name', (req, res) => {
     res.json(req.body.name);
 })
 
+app.get('/toastrImplementation', (req, res) => {
+    res.render('toastr/toastrDashboard');
+})
+
 app.listen(9999, () => {
     console.log('Started');
 })
