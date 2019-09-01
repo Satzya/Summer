@@ -17,7 +17,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
  */ /*  */
 
 app.engine('handlebars', exhbs({
-    defaultLayout: 'main',
+    defaultLayout: 'main', //toggle main & main2
+    // layoutsDir: __dirname + '/views/layouts/main2'
     partialsDir: __dirname + '/views/partials'
 }));
 app.set('view engine', 'handlebars');
