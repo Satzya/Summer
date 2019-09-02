@@ -3,6 +3,10 @@ var app = express();
 var exhbs = require('express-handlebars');
 var bodyParser = require('body-parser');
 
+/* Custom Routes implemented */
+let customRoute = require('./routes/rawRoute');
+app.use('/route', customRoute);
+
 // var mongo = require('./services/mongoFile');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -71,6 +75,7 @@ app.post('/getChassisInfo', (req, res) => {
         chassisNo: '1245352'
     });
 })
+
 
 
 app.listen(9999, () => {
