@@ -6,16 +6,6 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-/*
- * var rou = express.Router();
- *
- * rou.get('/happa', (req, res) => {
- * res.render('student/studentDashboard');
- * })
- *
- *app.use('/', rou); /* For Router
- */ /*  */
-
 app.engine('handlebars', exhbs({
     defaultLayout: 'main', //toggle main & main2
     // layoutsDir: __dirname + '/views/layouts/main2'
