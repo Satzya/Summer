@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var exhbs = require('express-handlebars');
 var bodyParser = require('body-parser');
+
 // var mongo = require('./services/mongoFile');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -60,6 +61,17 @@ app.post('/name', (req, res) => {
 app.get('/toastrImplementation', (req, res) => {
     res.render('toastr/toastrDashboard');
 })
+
+app.get('/vehicleInfo', (req, res) => {
+    res.render('vehicles/vehiclesDashboard');
+})
+
+app.post('/getChassisInfo', (req, res) => {
+    res.json({
+        chassisNo: '1245352'
+    });
+})
+
 
 app.listen(9999, () => {
     console.log('Started');
