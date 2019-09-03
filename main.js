@@ -27,6 +27,32 @@ app.get('/ajaxOperations', (req, res) => {
     res.render('ajaxCalls/ajaxOne');
 });
 
+app.get('/val', (req, res) => {
+
+    // let user = { fname: 'abc', lname: 'def' };
+
+    let user = {
+        attrib: [
+            { fname: 'abc', lname: 'def' },
+            { fname: 'abc', lname: 'def' }
+        ]
+    }
+
+    res.render('helperHandlebars/helperDashboard', {
+        attrib: [{
+            fname: 'xyz',
+            lname: 'abc'
+        }, {
+            fname: 'nmo',
+            lname: 'mno'
+        }, {
+            fname: 'nmo',
+            lname: 'mno'
+        }]
+    })
+});
+
+
 
 app.get('/studentDashboard', (req, res) => {
     res.render('student/studentDashboard');
