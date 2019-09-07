@@ -1,11 +1,18 @@
 var express = require('express');
 var app = express();
 var exhbs = require('express-handlebars');
+let importedMethod = require('./outer');
 
-
+console.log(importedMethod.rr());
+importedMethod.ww();
 app.engine('handlebars', exhbs({
     defaultLayout: 'main',
-    partialsDir: __dirname + '/views/partials'
+    partialsDir: __dirname + '/views/partials',
+    helpers: {
+        noop: function (val) {
+            return val + 1;
+        }
+    }
 }));
 app.set('view engine', 'handlebars');
 app.use('/public', express.static(__dirname + '/public'));
@@ -39,16 +46,18 @@ app.get('/val', (req, res) => {
     }
 
     res.render('helperHandlebars/helperDashboard', {
-        attrib: [{
-            fname: 'xyz',
-            lname: 'abc'
-        }, {
-            fname: 'nmo',
-            lname: 'mno'
-        }, {
-            fname: 'nmo',
-            lname: 'mno'
-        }]
+        attrib: [
+            {
+                fname: 'xyz',
+                lname: 'abc'
+            }, {
+                fname: 'nmo',
+                lname: 'mno'
+            }, {
+                fname: 'nmo',
+                lname: 'mno'
+            }
+        ]
     })
 });
 

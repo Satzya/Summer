@@ -8,17 +8,19 @@
 </head>
 
 <body>
-    <h1>
+    <h1>{{!-- Used for objects --}}
         {{#with title}}
         {{fname}}
         {{lname}}
         {{/with}}
 
-
+        {{!-- Used for arrays  --}}
         {{#each attrib}}
         {{fname}}
         {{lname}}
         {{/each}}
+
+        {{noop 22}}
     </h1>
 </body>
 
