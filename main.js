@@ -2,17 +2,25 @@ var express = require('express');
 var app = express();
 var exhbs = require('express-handlebars');
 let importedMethod = require('./outer');
+var bodyParser = require('body-parser');
+const dotEnv = require('dotenv');
+dotEnv.config();
+
+let helperPath = require('./helper/handlebarHelper');
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+console.log(importedMethod.rr());
+importedMethod.ww();
+
+
 
 console.log(importedMethod.rr());
 importedMethod.ww();
 app.engine('handlebars', exhbs({
     defaultLayout: 'main',
     partialsDir: __dirname + '/views/partials',
-    helpers: {
-        noop: function (val) {
-            return val + 1;
-        }
-    }
+    helpers: helperPath
 }));
 app.set('view engine', 'handlebars');
 app.use('/public', express.static(__dirname + '/public'));
@@ -41,8 +49,9 @@ app.get('/val', (req, res) => {
     let user = {
         attrib: [
             { fname: 'abc', lname: 'def' },
-            { fname: 'abc', lname: 'def' }
-        ]
+            { fname: 'abc', lname: 'def' },
+        ],
+        opera: [1, 2, 3, 4]
     }
 
     res.render('helperHandlebars/helperDashboard', {
@@ -67,6 +76,6 @@ app.get('/studentDashboard', (req, res) => {
     res.render('student/studentDashboard');
 });
 
-app.listen(9999, () => {
-    console.log('Started');
+app.listen(process.env.APP_PORT, process.env.HOST_NAME, () => {
+    // console.log('Started');
 })
