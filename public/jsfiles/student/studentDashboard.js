@@ -1,4 +1,3 @@
-
 $(document).ready(() => {
     $('#here').html('abc');
     $('#subjectDetails').hide();
