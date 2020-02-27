@@ -1,0 +1,24 @@
+<link rel="stylesheet" type="text/css" href="./../../public/css/custom.css">
+<div id="studentDashboard">
+    <h1 id="here" class="">StudentDashboard</h1>
+    <button id="toggle">Toggle</button>
+    <h1>{{name}}</h1>
+</div>
+
+<div>
+    <div id="personalDetails" class="">
+        {{> student/personalDetails }}
+    </div>
+
+    <div id="subjectDetails" class="hide">
+        {{> student/subjectDetails }}
+    </div>
+</div>
+<button id="subjectDetailsButton">Show SubjectDetails</button>
+<div id="showDetails"></div>
+<div id="studentDataTable">
+    {{> student/studentList}}
+</div>
+<script src="./../../public/jsfiles/student/studentDashboard.js"></script>
+<script src="./../../public/jsfiles/student/personalDetails.js"></script>
+<script src="./../../public/jsfiles/student/subjectDetails.js"></script>
